@@ -1,0 +1,90 @@
+.navigation {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  margin-top: 1vh;
+  width: 100vw;
+  font-family: "Segoe UI";
+  align-items: center;
+  z-index: 1;
+}
+
+.content {  /*Overwrite Style*/
+  flex-direction: column;
+}
+
+.container {  /*Performance Optimization*/
+  will-change: scroll-position;
+}
+
+.navigation > h1#fileName {  /*Set Text Style*/
+  --transition: 0.4s;
+  color: #1FCB1F;
+  font-size: 28px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.navigation-UI-button {
+  --transition: 0.2s;
+  margin: 10px;
+  height: 50px;
+  background-color: #86CCFF;
+  outline: 2px solid #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  color: #FFFFFF;
+  font-size: 24px;
+  padding: 0px 8px;
+  transition: all var(--transition);
+}
+
+.navigation-UI-button:hover { /*Hover Effect*/
+  background-color: #ADDCFE;
+  outline: 3.5px solid white;
+}
+
+.navigation-UI-button:active {  /*Click Effect*/
+  background-color: #FFFFFF;
+  color: #86CCFF;
+  outline: 3px solid #ADDCFE;
+}
+
+label.navigation-UI-button {
+  line-height: 50px;
+}
+
+#openFile {
+  display: none;
+}
+
+#wrapper {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  font-family: "Tahoma";
+  font-size: 24px;
+  background-color: #8dcfff;
+  background: -webkit-radial-gradient(circle, #afddff, #a9dbff, #a3d8ff, #9cd6ff, #96d3ff, #8fd0ff, #87ccff, #80c9ff, #76c5ff, #6cc1ff, #61bcff, #56b8ff);
+  background: -moz-radial-gradient(circle, #afddff, #a9dbff, #a3d8ff, #9cd6ff, #96d3ff, #8fd0ff, #87ccff, #80c9ff, #76c5ff, #6cc1ff, #61bcff, #56b8ff);
+  background: -ms-radial-gradient(circle, #afddff, #a9dbff, #a3d8ff, #9cd6ff, #96d3ff, #8fd0ff, #87ccff, #80c9ff, #76c5ff, #6cc1ff, #61bcff, #56b8ff);
+  background: -o-radial-gradient(circle, #afddff, #a9dbff, #a3d8ff, #9cd6ff, #96d3ff, #8fd0ff, #87ccff, #80c9ff, #76c5ff, #6cc1ff, #61bcff, #56b8ff);
+  background: radial-gradient(circle, #afddff, #a9dbff, #a3d8ff, #9cd6ff, #96d3ff, #8fd0ff, #87ccff, #80c9ff, #76c5ff, #6cc1ff, #61bcff, #56b8ff);
+  background-size: 400% 400%;
+  animation: flow 4s ease infinite alternate;
+}
+
+.card { /*Overwrite Style*/
+  margin: 30px;
+}
+/*_________________Animations_________________*/
+@keyframes flow {
+  from {
+		background-position: 0% 50%;
+	}
+  to {
+    background-position: 100% 50%;
+  }
+}

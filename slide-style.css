@@ -1,0 +1,57 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+.container {
+    position: absolute;
+    width: 100vh;
+    height: 100vw;
+    transform: rotate(-90deg) translateX(-100vh);
+    transform-origin: top left;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    /*Scroll Bar*/
+    /*#region Scroll Bar */
+
+    scrollbar-width: thin;  /*Make Scroll Bar Visible Or Not Visible*/
+    scrollbar-color: #d5edff #a2d8ff;
+    -ms-overflow-style: none;
+    /*#endregion */
+}
+/*Scroll Bar*/
+    /*#region Scroll Bar */
+    /*Scroll Bar Track*/
+    .container::-webkit-scrollbar {
+        /*display: none;*/  /*Make Scroll Bar Visible Or Not Visible*/
+        width: 1vh;
+        background-color: #a2d8ff;
+    }
+    .container::-webkit-scrollbar:hover {
+        background-color: #b2dfff;
+    }
+    .container::-webkit-scrollbar:active {
+        background-color: #a0d7ff;
+    }
+    /*Scroll Bar Handle*/
+    .container::-webkit-scrollbar-thumb {
+        background-color: #d5edff;
+    }
+    .container::-webkit-scrollbar-thumb:hover {
+        background-color: #dff2ff;
+    }
+    .container::-webkit-scrollbar-thumb:active {
+        background-color: #cce9ff;
+    }
+
+/*#endregion Scroll Bar */
+.content {
+    display: flex;
+    flex-direction: row;
+    width: max-content; /*Scale Conatiner As Much As Content; fit-container And min-content Work Too*/
+    transform: rotate(90deg) translateY(-100vh);
+    transform-origin: top left;
+}
+.slide {
+    width: 100vw;
+    height: 100vh;
+}
