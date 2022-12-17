@@ -1,0 +1,267 @@
+* {
+  perspective: 1000px;
+  }
+/*____________________📜🧾Tooltip🧾📜____________________*/
+*[data-tooltip]{
+  --tooltip-text-color: #FFFFFF;
+  --tooltip-color: #98D5FF;
+  --tooltip-hover: 100ms;
+  --tooltip-arrow-size: 8px;
+  --tooltip-arrow-color: #D2ECFF;
+  position: relative;
+  /* background-color: #0067d4; */
+}
+/*________________Tooltip Content________________*/
+*[data-tooltip]::before{
+  content: attr(data-tooltip);
+  position: absolute;
+  box-sizing: border-box;
+  color: var(--tooltip-text-color);
+  background: var(--tooltip-color);
+  padding: 8px;
+  border-radius: 3px;
+  outline: 1.7px solid var(--tooltip-arrow-color);
+  width: max-content;
+  font: 20px "Segoe UI";
+  left: 50%;
+  bottom: calc(100% + (var(--tooltip-arrow-size) * 2));
+  transform: translateX(-50%) scale(var(--scale));
+  /*_______________Hover Animation_______________*/
+  transform-origin: bottom;
+}
+/*----------------Tooltip Content----------------*/
+/*________________Tooltip Arrow__________________*/
+*[data-tooltip]::after{
+  position: absolute;
+  display: inline-block;
+  content: "";
+  border-width: var(--tooltip-arrow-size);
+  border-style: solid;
+  border-color: transparent;
+  border-top-color: var(--tooltip-arrow-color);
+  width: 0;
+  height: 0;
+  left: 50%;
+  bottom: 100%;
+  transform: translateX(-50%) scale(var(--scale));
+  transform-origin: top;  /*Hover Animation*/
+}
+/*-------------------Tooltip Arrow-------------------*/
+/*________________Tooltip Hover Effect________________*/
+*[data-tooltip]::before, *[data-tooltip]::after {
+  --scale: 0;
+  transition: transform var(--tooltip-hover);  /*Hover Animantion*/
+}
+/*____________________Tooltip Hover____________________*/
+*[data-tooltip]:hover::before, *[data-tooltip]:hover::after {
+  --scale: 1;
+}
+/*----------------Tooltip Hover Effect-----------------*/
+/*________________Tooltip Position_______________*/
+*[data-tooltip][data-tooltip-position]::before, *[data-tooltip][data-tooltip-position]::after {
+  /*_______________Reset Position_______________*/
+  left: unset;
+  bottom: unset;
+  transform: scale(var(--scale));
+  /*---------------Reset Position---------------*/
+}
+/*________________✨🎉Tooltip Position🎉✨_______________*/
+/*____________________⬅Tooltip Left⬅____________________*/
+/*____________________Tooltip Content________________*/
+*[data-tooltip][data-tooltip-position="left"]::before {
+  right: calc(100% + (var(--tooltip-arrow-size) * 2));
+  bottom: 50%;
+  transform: translateY(50%) scale(var(--scale));
+  transform-origin: right;  /*Hover Animation*/
+}
+/*--------------------Tooltip Content-----------------*/
+/*____________________Tooltip Arrow__________________*/
+*[data-tooltip][data-tooltip-position="left"]::after {
+  border-color: transparent;
+  border-left-color: var(--tooltip-arrow-color);
+  right: 100%;
+  bottom: 50%;
+  transform: translateY(50%) scale(var(--scale));
+  transform-origin: left; /*Hover Animation*/
+}
+/*--------------------Tooltip Arrow------------------*/
+/*--------------------⬅Tooltip Left⬅--------------------*/
+/*____________________➡Tooltip Right➡____________________*/
+/*____________________Tooltip Content________________*/
+*[data-tooltip][data-tooltip-position="right"]::before {
+  left: calc(100% + (var(--tooltip-arrow-size) * 2));
+  bottom: 50%;
+  transform: translateY(50%) scale(var(--scale));
+  transform-origin: left; /*Hover Animation*/
+}
+/*--------------------Tooltip Content-----------------*/
+/*____________________Tooltip Arrow__________________*/
+*[data-tooltip][data-tooltip-position="right"]::after {
+  border-color: transparent;
+  border-right-color: var(--tooltip-arrow-color);
+  left: 100%;
+  bottom: 50%;
+  transform: translateY(50%) scale(var(--scale));
+  transform-origin: right;  /*Hover Animation*/
+}
+/*--------------------Tooltip Arrow------------------*/
+/*--------------------➡Tooltip Right➡--------------------*/
+/*____________________⬆Tooltip Up⬆____________________*/
+/*____________________Tooltip Content________________*/
+*[data-tooltip][data-tooltip-position="up"]::before {
+  left: 50%;
+  bottom: calc(100% + (var(--tooltip-arrow-size) * 2));
+  transform: translateX(-50%) scale(var(--scale));
+  transform-origin: bottom; /*Hover Animation*/
+}
+/*--------------------Tooltip Content-----------------*/
+/*____________________Tooltip Arrow__________________*/
+*[data-tooltip][data-tooltip-position="up"]::after {
+  border-color: transparent;
+  border-top-color: var(--tooltip-arrow-color);
+  left: 50%;
+  bottom: 100%;
+  transform: translateX(-50%) scale(var(--scale));
+  transform-origin: top;  /*Hover Animation*/
+}
+/*--------------------Tooltip Arrow------------------*/
+/*--------------------⬆Tooltip Up⬆--------------------*/
+/*____________________⬇Tooltip Down⬇____________________*/
+/*____________________Tooltip Content________________*/
+*[data-tooltip][data-tooltip-position="down"]::before {
+  left: 50%;
+  top: calc(100% + (var(--tooltip-arrow-size) * 2));
+  transform: translateX(-50%) scale(var(--scale));
+  transform-origin: top;  /*Hover Animation*/
+}
+/*--------------------Tooltip Content-----------------*/
+/*____________________Tooltip Arrow__________________*/
+*[data-tooltip][data-tooltip-position="down"]::after {
+  border-color: transparent;
+  border-bottom-color: var(--tooltip-arrow-color);
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%) scale(var(--scale));
+  transform-origin: bottom;  /*Hover Animation*/
+}
+/*--------------------Tooltip Arrow------------------*/
+/*--------------------⬇Tooltip Down⬇--------------------*/
+/*------------------✨🎉Tooltip Position🎉✨------------------*/
+/*_______________Select Tooltip That Isn't Empty_______________*/
+*[data-tooltip]:not([data-tooltip=""]){
+  /* background-color: pink; */
+}
+/*---------------Select Tooltip That Isn't Empty---------------*/
+/*_______________Select Empty Tooltip_______________*/
+*[data-tooltip=""]{
+  /* background-color: green; */
+}
+/*---------------Select Empty Tooltip---------------*/
+/*--------------------📜🧾Tooltip🧾📜--------------------*/
+/*________________Card________________*/
+.card {
+  --size: 50vh;
+  --transition: 0.4s;
+  --hover-transition: 0.2s;
+  width: var(--size);
+  height: var(--size);
+  text-align: center;
+  font-size: 38px;
+  font-family: Segoe UI;
+  color: white;
+  text-shadow: 1px 1px 1px #BBBBBB;
+  /* text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; */
+  transition: all var(--transition), outline var(--hover-transition), background-color var(--hover-transition);
+}
+
+.front {
+  display: flex;
+  justify-content: center;  /*Center Contents*/
+  align-items: center;  /*Center Contents*/
+  position: absolute;
+  background: #8D8FDF;
+  background-position: center;
+  background-size: cover;
+  width: inherit;
+  height: inherit;
+  transition: all var(--transition);
+}
+
+.back {
+  display: flex;
+  justify-content: center;  /*Center Contents*/
+  align-items: center;  /*Center Contents*/
+  position: absolute;
+  background-color: pink;
+  width: inherit;
+  height: inherit;
+  z-index: -1;
+  transition: all var(--transition);
+  transform: rotateY(180deg);
+}
+/*_______________Scroll_______________*/
+.front, .back {
+  overflow: scroll;
+  scrollbar-width: none;  /*Male Scroll Bar Visible Or Not Visible*/
+  scrollbar-color: #d5edff #a2d8ff;
+}
+/*Scroll Bar Track*/
+.front::-webkit-scrollbar, .back::-webkit-scrollbar {
+  display: none;  /*Make Scroll Bar Visible Or Not Visible*/
+  width: 1vh;
+  background-color: #a2d8ff;
+}
+/*Scroll Bar Handle*/
+.front::-webkit-scrollbar-thumb, .back::-webkit-scrollbar-thumb {
+  background-color: #d5edff;
+}
+/*----------------Scroll---------------*/
+.front::before, .back::before { /*Click Effect*/
+  transition: all var(--hover-transition);
+}
+
+.front:hover::before, .back:hover::before {  /*Hover Effect*/
+  position: absolute;
+  content: '';
+  background: rgba(255, 255, 255, 0.2);
+  width: var(--size);
+  height: var(--size);
+  pointer-events: none;
+}
+
+.front:active::before, .back:active::before { /*Click Effect*/
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.card:hover {
+  outline: 4px solid #DEFEDF;
+}
+
+.card:active {
+  outline: 2px solid #DFFFDF;
+}
+
+.card:hover > .front {
+  /* background-color: #A3A5E5; */
+}
+
+.card:hover > .back {
+  background-color: #FFCCD5;
+}
+
+.card:active > .front {
+  background-color: #BABBEB;
+}
+
+.card:active > .back {
+  background-color: #FFD9DF;
+}
+
+.card.flip {
+  transform: rotateY(-180deg);
+}
+
+.flip > .back {
+  z-index: 1;
+}
+/*----------------Card----------------*/

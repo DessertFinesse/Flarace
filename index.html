@@ -8,22 +8,22 @@
   <meta name="author" content="Dessert Finesse">
   <meta name="keywords" content="Flarace, Flashcard, Flashcards, Create Flashcards, Card, Cards, Open Flashcards, View Flashcards, Interactive Flashcard, Interactive Flashcards, Create Cards, Open Cards, View Cards, Interactive Card, Interactive Cards">
   <link href="slide-style.css" rel="stylesheet">
-  <link href="card-style.css" rel="stylesheet">
+  <link href="craft.css" rel="stylesheet">
   <link href="style.css" rel="stylesheet">
 </head>
 <body onload="styleNotEmpty('#wrapper')">
-  <div class="container">
+  <div class="container" onscroll="scrollSide('.navigation','.container')">
     <div class="content">
       <nav class="navigation">
-        <label for="openFile" class="navigation-UI-button">📂Open</label>
-        <input id="openFile" type="file" value="📂Open" accept=".csv" onchange="createCards()">
-        <button class="navigation-UI-button" onclick="document.querySelector('#wrapper').contains(document.querySelector('.card')) ? shuffle('#wrapper') : console.log('Flashcards Not Open')">🍸Shuffle</button>
+        <label for="openFile" class="navigation-UI-button" data-tooltip="Open Files" data-tooltip-position="down">📂Open</label>
+        <input id="openFile" type="file" value="📂Open" accept=".csv, .xml" onchange="createCards()">
+        <button class="navigation-UI-button" data-tooltip="Shuffle Flashcards" data-tooltip-position="down" onclick="document.querySelector('#wrapper').contains(document.querySelector('.card')) ? shuffle('#wrapper') : console.log('Flashcards Not Open')">🍸Shuffle</button>
         <h1 id="fileName">Select Flashcards To Open</h1>
       </nav>
       <main id="wrapper"></main>
     </div>
   </div>
-  <script src="card-script.js"></script>
+  <script src="craft.js"></script>
   <script src="file-opener-script.js"></script>
   <script src="script.js"></script>
 </body>

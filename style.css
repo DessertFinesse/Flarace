@@ -1,8 +1,14 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .navigation {
   display: flex;
   flex-direction: row;
   position: absolute;
-  margin-top: 1vh;
+  margin-top: 2vh;
   width: 100vw;
   font-family: "Segoe UI";
   align-items: center;
@@ -22,13 +28,38 @@
   color: #1FCB1F;
   font-size: 28px;
   font-weight: 500;
+  /*_______________Scroll_______________*/
+  width: fit-content;
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow-x: scroll;
+  scrollbar-width: none;  /*Make Scroll Bar Visible Or Not Visible*/
+  scrollbar-color: #d5edff #a2d8ff;
+  /*---------------Scroll----------------*/
   transition: var(--transition);
 }
+/*_______________Scroll Bar________________*/
+.navigation > h1#fileName:hover {
+  scrollbar-width: thin;
+}
+/*Scroll Bar Track*/
+.navigation > h1#fileName::-webkit-scrollbar {
+  display: none;  /*Make Scroll Bar Visible Or Not Visible*/
+  width: 1vh;
+  background-color: #a2d8ff;
+}
+/*Scroll Bar Handle*/
+.navigation > h1#fileName::-webkit-scrollbar-thumb {
+  background-color: #d5edff;
+}
+/*----------------Scroll Bar----------------*/
 
 .navigation-UI-button {
   --transition: 0.2s;
   margin: 10px;
   height: 50px;
+  min-width: fit-content;
   background-color: #86CCFF;
   outline: 2px solid #FFFFFF;
   border: none;
@@ -82,8 +113,8 @@ label.navigation-UI-button {
 /*_________________Animations_________________*/
 @keyframes flow {
   from {
-		background-position: 0% 50%;
-	}
+    background-position: 0% 50%;
+  }
   to {
     background-position: 100% 50%;
   }

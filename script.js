@@ -3,6 +3,9 @@ function createCards(){
   let Files = document.getElementById("openFile").files;
   let File = Files[0];
   console.log("Files are\n" + Files + "\n" + File);
+  //File Extenstion
+  let FileType = File.name.split(".").pop().toLowerCase();  //Get File Extenstion
+  console.log(FileType);
   //Open File
   let Opener = new FileReader();
   
@@ -11,14 +14,28 @@ function createCards(){
   Opener.addEventListener("loadend", function(){
     let csv = Opener.result;
     //Process Data
-    let content = processCSVData(csv);
+    let content = [];
+    switch (FileType) {
+      case "csv":
+        console.log("CSV File");
+        content = processCSVData(csv);
+        break;
+      case "xml":
+        console.log("XML File");
+        content = processXMLData(File);
+        debugger; //⬅✔❌For Each Loop In Create Cards Doesn't Work Without This
+        break;
+      default:
+        console.log(`Invalid File Type  ➡  File Type ${FileType} Is Invalid`);
+        return;
+    }
     //Clear Contents
     document.getElementById("wrapper").innerHTML = "";
     //Display File Name
     document.getElementsByClassName("navigation")[0].querySelector("h1").innerHTML = File.name;
     document.getElementById("fileName").style.color = "white";
     //Create Cards
-    console.log(content);
+    console.log(content); //⬅✔❌Doesn't Work From Here Without Break Point In Process Data
     content.forEach((items, counterA) => {
       let wrapper = document.getElementById("wrapper");
       //Create Cards

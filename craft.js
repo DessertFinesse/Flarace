@@ -1,3 +1,4 @@
+//Interactive
 function interactive(){
   let cards = document.querySelectorAll(".card");
   let wrapper = document.getElementById("wrapper");
@@ -12,4 +13,10 @@ function interactive(){
     })
   });
   
+}
+//Scroll
+function scrollSide(element, container){
+  let scrollElement = document.querySelector(element);
+  let scrollContainer = document.querySelector(container);
+  scrollElement.style.left = scrollContainer.scrollTop + "px";
 }
